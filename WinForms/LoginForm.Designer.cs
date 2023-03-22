@@ -41,22 +41,20 @@
             // 
             this.txtUserName.BackColor = System.Drawing.SystemColors.Info;
             this.txtUserName.Location = new System.Drawing.Point(296, 160);
-            this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.PlaceholderText = "User Name";
-            this.txtUserName.Size = new System.Drawing.Size(195, 35);
+            this.txtUserName.Size = new System.Drawing.Size(195, 23);
             this.txtUserName.TabIndex = 0;
             this.txtUserName.Tag = "";
             // 
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.SystemColors.Info;
-            this.txtPassword.ForeColor = System.Drawing.Color.Transparent;
+            this.txtPassword.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtPassword.Location = new System.Drawing.Point(296, 204);
-            this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PlaceholderText = "Password";
-            this.txtPassword.Size = new System.Drawing.Size(195, 35);
+            this.txtPassword.Size = new System.Drawing.Size(195, 23);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.Tag = "";
             this.txtPassword.UseSystemPasswordChar = true;

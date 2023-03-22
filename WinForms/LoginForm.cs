@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+using FoodLibrary.DAL;
+using FoodLibrary.Object;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,10 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WinForms
 {
     public partial class LoginForm : Form
     {
+        AccountDAO accountDAO = new AccountDAO();
         public LoginForm()
         {
             InitializeComponent();
@@ -25,10 +30,20 @@ namespace WinForms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Management mane = new Management();
-            this.Hide();
-            mane.ShowDialog();
-            this.Show();
+            string username = txtUserName.Text;
+            string password = txtPassword.Text;
+            Account acc = accountDAO.Login(username, password);
+            if (acc != null)
+            {
+                Management m = new Management(acc);
+                this.Hide();
+                m.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+            }
         }
     }
 }

@@ -33,16 +33,32 @@
             this.userInforToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btnDis = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnMove = new System.Windows.Forms.Button();
+            this.btnMomo = new System.Windows.Forms.Button();
             this.btnCashPay = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lsvOrder = new System.Windows.Forms.ListView();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.nudAmout = new System.Windows.Forms.NumericUpDown();
+            this.cboMenu = new System.Windows.Forms.ComboBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAmout)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -74,31 +90,81 @@
             // informationToolStripMenuItem
             // 
             this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.informationToolStripMenuItem.Text = "Information";
             this.informationToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(12, 39);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 668);
-            this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.btnDis);
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.btnMove);
+            this.panel2.Controls.Add(this.btnMomo);
             this.panel2.Controls.Add(this.btnCashPay);
             this.panel2.Location = new System.Drawing.Point(758, 607);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(439, 100);
             this.panel2.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(181, 43);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(119, 32);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(97, 53);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(78, 23);
+            this.numericUpDown1.TabIndex = 5;
+            // 
+            // btnDis
+            // 
+            this.btnDis.Location = new System.Drawing.Point(96, 3);
+            this.btnDis.Name = "btnDis";
+            this.btnDis.Size = new System.Drawing.Size(79, 43);
+            this.btnDis.TabIndex = 4;
+            this.btnDis.Text = "Discount";
+            this.btnDis.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(0, 52);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(90, 23);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // btnMove
+            // 
+            this.btnMove.Location = new System.Drawing.Point(0, 3);
+            this.btnMove.Name = "btnMove";
+            this.btnMove.Size = new System.Drawing.Size(90, 43);
+            this.btnMove.TabIndex = 2;
+            this.btnMove.Text = "Move Table";
+            this.btnMove.UseVisualStyleBackColor = true;
+            // 
+            // btnMomo
+            // 
+            this.btnMomo.Location = new System.Drawing.Point(326, 52);
+            this.btnMomo.Name = "btnMomo";
+            this.btnMomo.Size = new System.Drawing.Size(101, 43);
+            this.btnMomo.TabIndex = 1;
+            this.btnMomo.Text = "Payment Via Momo";
+            this.btnMomo.UseVisualStyleBackColor = true;
             // 
             // btnCashPay
             // 
@@ -111,45 +177,107 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.listView1);
-            this.panel3.Location = new System.Drawing.Point(758, 102);
+            this.panel3.Controls.Add(this.lsvOrder);
+            this.panel3.Location = new System.Drawing.Point(758, 154);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(439, 499);
+            this.panel3.Size = new System.Drawing.Size(439, 447);
             this.panel3.TabIndex = 3;
             // 
-            // listView1
+            // lsvOrder
             // 
-            this.listView1.Location = new System.Drawing.Point(3, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(430, 493);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lsvOrder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.lsvOrder.GridLines = true;
+            this.lsvOrder.Location = new System.Drawing.Point(3, 0);
+            this.lsvOrder.Name = "lsvOrder";
+            this.lsvOrder.Size = new System.Drawing.Size(439, 441);
+            this.lsvOrder.TabIndex = 0;
+            this.lsvOrder.UseCompatibleStateImageBehavior = false;
+            this.lsvOrder.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Width = 200;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Price";
+            this.columnHeader4.Width = 80;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Amount";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Total";
+            this.columnHeader6.Width = 150;
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(758, 39);
+            this.panel4.Controls.Add(this.btnAdd);
+            this.panel4.Controls.Add(this.nudAmout);
+            this.panel4.Controls.Add(this.cboMenu);
+            this.panel4.Controls.Add(this.cboCategory);
+            this.panel4.Location = new System.Drawing.Point(758, 62);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(433, 57);
             this.panel4.TabIndex = 4;
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Location = new System.Drawing.Point(326, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 43);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Payment Via Momo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(326, 23);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 34);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // nudAmout
+            // 
+            this.nudAmout.Location = new System.Drawing.Point(235, 34);
+            this.nudAmout.Name = "nudAmout";
+            this.nudAmout.Size = new System.Drawing.Size(85, 23);
+            this.nudAmout.TabIndex = 2;
+            // 
+            // cboMenu
+            // 
+            this.cboMenu.FormattingEnabled = true;
+            this.cboMenu.Location = new System.Drawing.Point(16, 34);
+            this.cboMenu.Name = "cboMenu";
+            this.cboMenu.Size = new System.Drawing.Size(198, 23);
+            this.cboMenu.TabIndex = 1;
+            // 
+            // cboCategory
+            // 
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(16, 0);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(159, 23);
+            this.cboCategory.TabIndex = 0;
+            this.cboCategory.SelectedIndexChanged += new System.EventHandler(this.cboCategory_SelectedIndexChanged);
+            // 
+            // flpTable
+            // 
+            this.flpTable.Location = new System.Drawing.Point(42, 62);
+            this.flpTable.Name = "flpTable";
+            this.flpTable.Size = new System.Drawing.Size(645, 562);
+            this.flpTable.TabIndex = 5;
             // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 719);
+            this.Controls.Add(this.flpTable);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Management";
@@ -158,7 +286,11 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudAmout)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,14 +301,27 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem managementToolStripMenuItem;
         private ToolStripMenuItem userInforToolStripMenuItem;
-        private Panel panel1;
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
         private ToolStripMenuItem informationToolStripMenuItem;
         private ToolStripMenuItem logOutToolStripMenuItem;
         private Button btnCashPay;
-        private ListView listView1;
-        private Button button1;
+        private Button btnMomo;
+        private ComboBox cboCategory;
+        private Button btnAdd;
+        private NumericUpDown nudAmout;
+        private ComboBox cboMenu;
+        private FlowLayoutPanel flpTable;
+        private ListView lsvOrder;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader6;
+        private NumericUpDown numericUpDown1;
+        private Button btnDis;
+        private ComboBox comboBox1;
+        private Button btnMove;
+        private TextBox textBox1;
     }
 }

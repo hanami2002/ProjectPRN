@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinForms", "WinForms\WinForms.csproj", "{29B374FE-63C7-4E90-BCD6-834703401F06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodLibrary", "FoodLibrary\FoodLibrary.csproj", "{E9186699-F508-40AD-B61F-F1A34D19419E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodLibrary", "FoodLibrary\FoodLibrary.csproj", "{E9186699-F508-40AD-B61F-F1A34D19419E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{19EDE813-7E57-4A3B-B4F6-537F0D760E23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E9186699-F508-40AD-B61F-F1A34D19419E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9186699-F508-40AD-B61F-F1A34D19419E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9186699-F508-40AD-B61F-F1A34D19419E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19EDE813-7E57-4A3B-B4F6-537F0D760E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19EDE813-7E57-4A3B-B4F6-537F0D760E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19EDE813-7E57-4A3B-B4F6-537F0D760E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19EDE813-7E57-4A3B-B4F6-537F0D760E23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

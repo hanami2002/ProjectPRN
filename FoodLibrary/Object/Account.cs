@@ -8,10 +8,18 @@ namespace FoodLibrary.Object
 {
     public class Account
     {
-        public string UserName { get; set; }
-        public string DisplayName { get; set; }
-        public string Password { get; set; }
-        public int Role { get; set; }
-        
+        public Account(string userName, string displayName, string password, int role)
+        {
+            UserName = userName;
+            DisplayName = displayName;
+            Password = password;
+            Role = role;
+        }
+
+        public String UserName { get; set; }
+        public String DisplayName { get; set; }
+        public String Password { get; set; }
+        public int? Role { get; set; }
+
     }
 }

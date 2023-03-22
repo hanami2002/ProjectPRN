@@ -8,7 +8,14 @@ namespace FoodLibrary.Object
 {
     public class Status
     {
+        public Status(int id, string? sttName)
+        {
+            Id = id;
+            this.sttName = sttName;
+        }
+
         public int Id { get; set; }
-        public string SttName { get; set; }
+        public string? sttName { get; set; }
+
     }
 }
