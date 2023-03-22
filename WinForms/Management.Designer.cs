@@ -34,10 +34,10 @@
             this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.nudDis = new System.Windows.Forms.NumericUpDown();
             this.btnDis = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboMove = new System.Windows.Forms.ComboBox();
             this.btnMove = new System.Windows.Forms.Button();
             this.btnMomo = new System.Windows.Forms.Button();
             this.btnCashPay = new System.Windows.Forms.Button();
@@ -53,9 +53,10 @@
             this.cboMenu = new System.Windows.Forms.ComboBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtMoney = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDis)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmout)).BeginInit();
@@ -90,46 +91,47 @@
             // informationToolStripMenuItem
             // 
             this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.informationToolStripMenuItem.Text = "Information";
             this.informationToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.txtMoney);
+            this.panel2.Controls.Add(this.txtTotal);
+            this.panel2.Controls.Add(this.nudDis);
             this.panel2.Controls.Add(this.btnDis);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cboMove);
             this.panel2.Controls.Add(this.btnMove);
             this.panel2.Controls.Add(this.btnMomo);
             this.panel2.Controls.Add(this.btnCashPay);
-            this.panel2.Location = new System.Drawing.Point(758, 607);
+            this.panel2.Location = new System.Drawing.Point(693, 607);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(439, 100);
+            this.panel2.Size = new System.Drawing.Size(504, 100);
             this.panel2.TabIndex = 2;
             // 
-            // textBox1
+            // txtTotal
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(181, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(119, 32);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTotal.Location = new System.Drawing.Point(181, 65);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(166, 32);
+            this.txtTotal.TabIndex = 6;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // numericUpDown1
+            // nudDis
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(97, 53);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(78, 23);
-            this.numericUpDown1.TabIndex = 5;
+            this.nudDis.Location = new System.Drawing.Point(97, 53);
+            this.nudDis.Name = "nudDis";
+            this.nudDis.Size = new System.Drawing.Size(78, 23);
+            this.nudDis.TabIndex = 5;
             // 
             // btnDis
             // 
@@ -140,13 +142,13 @@
             this.btnDis.Text = "Discount";
             this.btnDis.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cboMove
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(90, 23);
-            this.comboBox1.TabIndex = 3;
+            this.cboMove.FormattingEnabled = true;
+            this.cboMove.Location = new System.Drawing.Point(0, 52);
+            this.cboMove.Name = "cboMove";
+            this.cboMove.Size = new System.Drawing.Size(90, 23);
+            this.cboMove.TabIndex = 3;
             // 
             // btnMove
             // 
@@ -159,28 +161,30 @@
             // 
             // btnMomo
             // 
-            this.btnMomo.Location = new System.Drawing.Point(326, 52);
+            this.btnMomo.Location = new System.Drawing.Point(400, 52);
             this.btnMomo.Name = "btnMomo";
             this.btnMomo.Size = new System.Drawing.Size(101, 43);
             this.btnMomo.TabIndex = 1;
             this.btnMomo.Text = "Payment Via Momo";
             this.btnMomo.UseVisualStyleBackColor = true;
+            this.btnMomo.Click += new System.EventHandler(this.btnMomo_Click);
             // 
             // btnCashPay
             // 
-            this.btnCashPay.Location = new System.Drawing.Point(326, 3);
+            this.btnCashPay.Location = new System.Drawing.Point(400, 3);
             this.btnCashPay.Name = "btnCashPay";
             this.btnCashPay.Size = new System.Drawing.Size(101, 43);
             this.btnCashPay.TabIndex = 0;
             this.btnCashPay.Text = "Cash Payment";
             this.btnCashPay.UseVisualStyleBackColor = true;
+            this.btnCashPay.Click += new System.EventHandler(this.btnCashPay_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lsvOrder);
-            this.panel3.Location = new System.Drawing.Point(758, 154);
+            this.panel3.Location = new System.Drawing.Point(693, 154);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(439, 447);
+            this.panel3.Size = new System.Drawing.Size(504, 447);
             this.panel3.TabIndex = 3;
             // 
             // lsvOrder
@@ -191,9 +195,9 @@
             this.columnHeader5,
             this.columnHeader6});
             this.lsvOrder.GridLines = true;
-            this.lsvOrder.Location = new System.Drawing.Point(3, 0);
+            this.lsvOrder.Location = new System.Drawing.Point(0, 0);
             this.lsvOrder.Name = "lsvOrder";
-            this.lsvOrder.Size = new System.Drawing.Size(439, 441);
+            this.lsvOrder.Size = new System.Drawing.Size(501, 441);
             this.lsvOrder.TabIndex = 0;
             this.lsvOrder.UseCompatibleStateImageBehavior = false;
             this.lsvOrder.View = System.Windows.Forms.View.Details;
@@ -223,14 +227,14 @@
             this.panel4.Controls.Add(this.nudAmout);
             this.panel4.Controls.Add(this.cboMenu);
             this.panel4.Controls.Add(this.cboCategory);
-            this.panel4.Location = new System.Drawing.Point(758, 62);
+            this.panel4.Location = new System.Drawing.Point(693, 62);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(433, 57);
             this.panel4.TabIndex = 4;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(326, 23);
+            this.btnAdd.Location = new System.Drawing.Point(326, 20);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 34);
             this.btnAdd.TabIndex = 3;
@@ -269,6 +273,16 @@
             this.flpTable.Size = new System.Drawing.Size(645, 562);
             this.flpTable.TabIndex = 5;
             // 
+            // txtMoney
+            // 
+            this.txtMoney.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMoney.Location = new System.Drawing.Point(181, 6);
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.PlaceholderText = "--Input Money--";
+            this.txtMoney.Size = new System.Drawing.Size(166, 32);
+            this.txtMoney.TabIndex = 7;
+            this.txtMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -287,7 +301,7 @@
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDis)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudAmout)).EndInit();
@@ -318,10 +332,11 @@
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown nudDis;
         private Button btnDis;
-        private ComboBox comboBox1;
+        private ComboBox cboMove;
         private Button btnMove;
-        private TextBox textBox1;
+        private TextBox txtTotal;
+        private TextBox txtMoney;
     }
 }

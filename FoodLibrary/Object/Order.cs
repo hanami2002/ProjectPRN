@@ -15,6 +15,7 @@ namespace FoodLibrary.Object
             DateCheckIn = dateCheckIn;
             DateCheckOut = dateCheckOut;
             Status = status;
+            
         }
 
         public int Id { get; set; }
@@ -22,5 +23,6 @@ namespace FoodLibrary.Object
         public DateTime DateCheckIn { get; set; }
         public DateTime DateCheckOut { get; set; }
         public int Status { get; set; }
+     
     }
 }

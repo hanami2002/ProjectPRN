@@ -70,7 +70,7 @@ namespace WinForms
                 total += order.Total;
                 lsvOrder.Items.Add(lsv);
             }
-            textBox1.Text = total.ToString();
+            txtTotal.Text = total.ToString();
         }
        
         public void LoadTables()
@@ -86,7 +86,7 @@ namespace WinForms
                 btn.Text = item.NameTablee + Environment.NewLine + sttDAO.GetNameByID(item.SttId);
                 btn.Click += btn_Click;
                 btn.Tag = item;
-                if (item.SttId == 3)
+                if (item.SttId == 1)
                 {
                     btn.BackColor = Color.Green;
                 }
@@ -119,35 +119,49 @@ namespace WinForms
             id = category.Id;
             cboMenu.DataSource = menuDAO.GetMenuByIdCate(id);
             cboMenu.DisplayMember = "Name";
-
-
         }
         
              
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // orderDAO.InsertOrder(orderDAO.GetID("[Order]"), 18);
-            // detailDAO.InsertOrderDetail(8, 3, 3, 10);
+
             Table table = lsvOrder.Tag as Table;
-            int idBill = orderDAO.GetIdByTableId(table.Id);
-            
+            int idBill = orderDAO.GetIdByTableId(table.Id);           
             int food = (cboMenu.SelectedItem as Menu).Id;
             int count =(int) nudAmout.Value;
-            MessageBox.Show("idBill:" + idBill.ToString() + "\n"
-                + "idfood:" + food + "\n"+"count:"+count) ;
+            MessageBox.Show(orderDAO.GetMaxID("[Order]") + " "+ orderDAO.GetMaxID("OrderDetail"));
 
 
-            if (idBill ==-1) {
-
-
-               orderDAO.InsertOrder(orderDAO.GetMaxID("[Order]")+1, table.Id);
-     //           detailDAO.InsertOrderDetail(orderDAO.GetID("OrderDetail")+1, orderDAO.GetID("[Order]"), food, count);
+            if (idBill == -1)
+            {
+                orderDAO.InsertOrder(orderDAO.GetMaxID("[Order]") + 1, table.Id);
+                detailDAO.InsertOrderDetail(orderDAO.GetMaxID("OrderDetail") + 1, orderDAO.GetMaxID("[Order]"), food, count);
             }
             else
             {
-
+                detailDAO.InsertOrderDetail(orderDAO.GetMaxID("OrderDetail") + 1, idBill, food, count);
             }
-            LoadAll();
+            ShowOrder(table.Id);
+            LoadTables();
+
+        }
+
+        private void btnCashPay_Click(object sender, EventArgs e)
+        {
+            Table table = lsvOrder.Tag as Table;
+            int idBill= orderDAO.GetIdByTableId(table.Id);
+            MessageBox.Show(idBill.ToString()+" "+table.Id);
+            if (idBill != -1)
+            {               
+                    orderDAO.CheckOut(table.Id);
+                
+            }
+            ShowOrder(table.Id);
+            LoadTables();
+        }
+
+        private void btnMomo_Click(object sender, EventArgs e)
+        {
 
         }
     }

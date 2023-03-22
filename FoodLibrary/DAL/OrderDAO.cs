@@ -48,21 +48,24 @@ namespace FoodLibrary.DAL
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
+                   
                     while (reader.Read())
                     {
-                        if (reader[0]==null)
-                        {
-                            return 0;
-                        }
-                        else {
-                            return (int)reader[0];
-                        }
-                        
+                        //int? id =(int) reader[0]; 
+                        //if (id == null)
+                        //{
+                        //    return 0 ;
+                        //}
+                        //else {
+                        //    return (int)reader[0];
+                        //}
+                        return (int)reader[0];
                     }
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception(ex.Message);
+                    return 0;
+                    //throw new Exception(ex.Message);
                 }
             }
             return -1;
@@ -77,6 +80,26 @@ namespace FoodLibrary.DAL
                 command.Parameters.AddWithValue("@id1", idorder);
                 command.Parameters.AddWithValue("@id2", idtable);
 
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+        public void CheckOut(int idTable)
+        {
+            string sql = "update [Order] set StatusID=3 ,dateCheckout=getdate() where idTable=@id";
+            using (SqlConnection connection =
+                new SqlConnection(getConnectionString()))
+            {
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@id", idTable);               
                 try
                 {
                     connection.Open();
