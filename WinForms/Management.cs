@@ -41,18 +41,28 @@ namespace WinForms
             InitializeComponent();
             //LoadEmployee();
             LoadAll();
+            if (account.Role == 1)
+            {
+                managementToolStripMenuItem.Enabled= false;
+            }
+            informationToolStripMenuItem.Text=informationToolStripMenuItem.Text+ " ("+account.DisplayName+")";
 
         }
 
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UserInfor us= new UserInfor(account);
 
+            this.Hide();
+            us.ShowDialog();
+            this.Show();
         }
         public void LoadAll()
         {
             LoadTables();
             LoadCategory();
             cboCategory.SelectedIndex = 0;
+            LoadMoveTable();
             
 
         }
@@ -104,10 +114,20 @@ namespace WinForms
             cboCategory.DataSource = list;
             cboCategory.DisplayMember = "Name";
         }
+        public void LoadMoveTable()
+        {
+            cboMove.DataSource = tableDAO.GetListTables();
+            cboMove.DisplayMember = "NameTablee";
+        }
 
         private void btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).Id;
+            int idBill = orderDAO.GetIdByTableId(tableID);
+            if (idBill == -1)
+            {
+                btnCashPay.Enabled = false;
+            }
             lsvOrder.Tag = (sender as Button).Tag;
             ShowOrder(tableID);
         }
@@ -129,8 +149,8 @@ namespace WinForms
             int idBill = orderDAO.GetIdByTableId(table.Id);           
             int food = (cboMenu.SelectedItem as Menu).Id;
             int count =(int) nudAmout.Value;
-            MessageBox.Show(orderDAO.GetMaxID("[Order]") + " "+ orderDAO.GetMaxID("OrderDetail"));
-
+            
+            
 
             if (idBill == -1)
             {
@@ -141,6 +161,7 @@ namespace WinForms
             {
                 detailDAO.InsertOrderDetail(orderDAO.GetMaxID("OrderDetail") + 1, idBill, food, count);
             }
+            btnCashPay.Enabled = true;
             ShowOrder(table.Id);
             LoadTables();
 
@@ -153,8 +174,7 @@ namespace WinForms
             MessageBox.Show(idBill.ToString()+" "+table.Id);
             if (idBill != -1)
             {               
-                    orderDAO.CheckOut(table.Id);
-                
+                    orderDAO.CheckOut(table.Id,Convert.ToDouble(txtTotal.Text));               
             }
             ShowOrder(table.Id);
             LoadTables();
@@ -163,6 +183,36 @@ namespace WinForms
         private void btnMomo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMove_Click(object sender, EventArgs e)
+        {
+            Table table= lsvOrder.Tag as Table;
+            Table table2 = cboMove.SelectedItem as Table;
+            orderDAO.MoveTable(table.Id, table2.Id);
+            LoadAll();
+        }
+
+        private void txtMoney_TextChanged(object sender, EventArgs e)
+        {
+            if(txtMoney.Text.Length > 0)
+            {
+                btnMomo.Enabled = false;
+                btnCashPay.Enabled = true;
+            }
+            else
+            {
+                btnMomo.Enabled = true;
+                btnCashPay.Enabled = false;
+            }
+        }
+
+        private void managementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminForm ma = new AdminForm();
+            this.Hide();
+            ma.ShowDialog();
+            this.Show();
         }
     }
 }

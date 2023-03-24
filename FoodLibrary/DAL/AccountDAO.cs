@@ -60,9 +60,10 @@ namespace FoodLibrary.DAL
                     {
                         Account acc = new Account
                         ((string)reader[0], (string)reader[1], (string)reader[2], (int)reader[3]);
-
+                        connection.Close();
                         return acc;
                     }
+
                 }
                 catch (Exception ex)
                 {
@@ -70,6 +71,62 @@ namespace FoodLibrary.DAL
                 }
                 return null;
             }
+        }
+        public Account GetAccountByUserName(string username)
+        {
+            string sql = "select*from Account where userName=@user";
+            using (SqlConnection connection =
+                new SqlConnection(getConnectionString()))
+            {
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@user", username);
+                //    command.Parameters.AddWithValue("@pass", password);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Account acc = new Account
+                        ((string)reader[0], (string)reader[1], (string)reader[2], (int)reader[3]);
+                        connection.Close();
+                        return acc;
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                return null;
+            }
+        }
+        public void UpdateInfoAccount(string username, string display, string passsO, string passN)
+        {
+            string sql = "update account set displayName=@display,[password]=@newpass where username= @username and [password]=@passO";
+            using (SqlConnection connection =
+               new SqlConnection(getConnectionString()))
+            {
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@username", username);
+                command.Parameters.AddWithValue("@passO", passsO);
+                command.Parameters.AddWithValue("@newpass", passN);
+                command.Parameters.AddWithValue("@display", display);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+            }
+
         }
     }
 }

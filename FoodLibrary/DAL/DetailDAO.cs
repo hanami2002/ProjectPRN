@@ -44,9 +44,9 @@ namespace FoodLibrary.DAL
         }
         public IEnumerable<Bill> GetBillByTable(int id)
         {
-            string queryString = "select m.[name],od.counts,m.price,od.counts*m.price " +
-                "from orderdetail od, [order] o, menu m" +
-                "\nwhere od.idOrder= o.id and od.idfood= m.id and o.statusID=4 and o.id=@id";
+                string queryString = "select m.[name],od.counts,m.price,od.counts*m.price " +
+                    "from orderdetail od, [order] o, menu m" +
+                    "\nwhere od.idOrder= o.id and od.idfood= m.id and o.statusID=4 and o.id=@id";
             var accounts = new List<Bill>();
             using (SqlConnection connection =
                 new SqlConnection(getConnectionString()))

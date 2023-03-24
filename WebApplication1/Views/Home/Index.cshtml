@@ -1,8 +1,16 @@
-﻿@{
+﻿@model IEnumerable<WebApplication1.Models.Table>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+
+@{
+
     ViewData["Title"] = "Home Page";
 }
+@if (@Accessor.HttpContext.Session.GetString("user") != null)
+{
+    @foreach (var item in Model)
+    {
+        <a href="/OrderDetail/@item.Id">@item.NameTable</a>
+    }
+}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>

@@ -1,6 +1,7 @@
 ﻿using FoodLibrary.DataAccess;
 using FoodLibrary.Object;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -92,9 +93,9 @@ namespace FoodLibrary.DAL
                 }
             }
         }
-        public void CheckOut(int idTable)
+        public void CheckOut(int idTable,double price)
         {
-            string sql = "update [Order] set StatusID=3 ,dateCheckout=getdate() where idTable=@id";
+            string sql = "update [Order] set StatusID=3 ,dateCheckout=getdate(),total="+price+" where idTable=@id";
             using (SqlConnection connection =
                 new SqlConnection(getConnectionString()))
             {
@@ -110,6 +111,66 @@ namespace FoodLibrary.DAL
                 {
                     throw new Exception(ex.Message);
                 }
+            }
+        }
+        public void MoveTable(int id1,int id2)
+        {
+            
+            string sql = "exec pro_Switch_table @idTable1=@id1,@idTable2=@id2,@id1=@id3,@id2=@id4";
+            using (SqlConnection connection =
+                new SqlConnection(getConnectionString()))
+            {
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@id1", id1);
+                command.Parameters.AddWithValue("@id2", id2);
+                command.Parameters.AddWithValue("@id4", GetMaxID("[order]"));
+                command.Parameters.AddWithValue("@id3", GetMaxID("[order]"));
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+        public ArrayList GetListByDate(DateTime date1,DateTime date2)
+        {
+            string sql = "exec pro_GetListBillbyDate @checkin=@d1 ,@checkout= @d2";
+            using (SqlConnection connection =
+                new SqlConnection(getConnectionString()))
+            {
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@d1", date1);
+                command.Parameters.AddWithValue("@d2", date2);
+                var list = new ArrayList();
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    
+                    while (reader.Read())
+                    {
+                        var new1 = new { 
+                            TableName = (string)reader[0],
+                            Total = (double)reader[1],
+                            CheckIn= (DateTime)reader[2],
+                            CheckOut= (DateTime)reader[3]
+                        };
+                        list.Add(new1);
+                    }
+                    return list;
+                    
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                return null;
             }
         }
     }

@@ -34,9 +34,8 @@
             this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtMoney = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.nudDis = new System.Windows.Forms.NumericUpDown();
-            this.btnDis = new System.Windows.Forms.Button();
             this.cboMove = new System.Windows.Forms.ComboBox();
             this.btnMove = new System.Windows.Forms.Button();
             this.btnMomo = new System.Windows.Forms.Button();
@@ -53,10 +52,8 @@
             this.cboMenu = new System.Windows.Forms.ComboBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtMoney = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDis)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmout)).BeginInit();
@@ -78,6 +75,7 @@
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
             this.managementToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.managementToolStripMenuItem.Text = "Management";
+            this.managementToolStripMenuItem.Click += new System.EventHandler(this.managementToolStripMenuItem_Click);
             // 
             // userInforToolStripMenuItem
             // 
@@ -91,22 +89,20 @@
             // informationToolStripMenuItem
             // 
             this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.informationToolStripMenuItem.Text = "Information";
             this.informationToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtMoney);
             this.panel2.Controls.Add(this.txtTotal);
-            this.panel2.Controls.Add(this.nudDis);
-            this.panel2.Controls.Add(this.btnDis);
             this.panel2.Controls.Add(this.cboMove);
             this.panel2.Controls.Add(this.btnMove);
             this.panel2.Controls.Add(this.btnMomo);
@@ -115,6 +111,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(504, 100);
             this.panel2.TabIndex = 2;
+            // 
+            // txtMoney
+            // 
+            this.txtMoney.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMoney.Location = new System.Drawing.Point(181, 6);
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.PlaceholderText = "--Input Money--";
+            this.txtMoney.Size = new System.Drawing.Size(166, 32);
+            this.txtMoney.TabIndex = 7;
+            this.txtMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMoney.TextChanged += new System.EventHandler(this.txtMoney_TextChanged);
             // 
             // txtTotal
             // 
@@ -126,38 +133,23 @@
             this.txtTotal.TabIndex = 6;
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // nudDis
-            // 
-            this.nudDis.Location = new System.Drawing.Point(97, 53);
-            this.nudDis.Name = "nudDis";
-            this.nudDis.Size = new System.Drawing.Size(78, 23);
-            this.nudDis.TabIndex = 5;
-            // 
-            // btnDis
-            // 
-            this.btnDis.Location = new System.Drawing.Point(96, 3);
-            this.btnDis.Name = "btnDis";
-            this.btnDis.Size = new System.Drawing.Size(79, 43);
-            this.btnDis.TabIndex = 4;
-            this.btnDis.Text = "Discount";
-            this.btnDis.UseVisualStyleBackColor = true;
-            // 
             // cboMove
             // 
             this.cboMove.FormattingEnabled = true;
             this.cboMove.Location = new System.Drawing.Point(0, 52);
             this.cboMove.Name = "cboMove";
-            this.cboMove.Size = new System.Drawing.Size(90, 23);
+            this.cboMove.Size = new System.Drawing.Size(112, 23);
             this.cboMove.TabIndex = 3;
             // 
             // btnMove
             // 
             this.btnMove.Location = new System.Drawing.Point(0, 3);
             this.btnMove.Name = "btnMove";
-            this.btnMove.Size = new System.Drawing.Size(90, 43);
+            this.btnMove.Size = new System.Drawing.Size(112, 43);
             this.btnMove.TabIndex = 2;
             this.btnMove.Text = "Move Table";
             this.btnMove.UseVisualStyleBackColor = true;
+            this.btnMove.Click += new System.EventHandler(this.btnMove_Click);
             // 
             // btnMomo
             // 
@@ -273,16 +265,6 @@
             this.flpTable.Size = new System.Drawing.Size(645, 562);
             this.flpTable.TabIndex = 5;
             // 
-            // txtMoney
-            // 
-            this.txtMoney.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMoney.Location = new System.Drawing.Point(181, 6);
-            this.txtMoney.Name = "txtMoney";
-            this.txtMoney.PlaceholderText = "--Input Money--";
-            this.txtMoney.Size = new System.Drawing.Size(166, 32);
-            this.txtMoney.TabIndex = 7;
-            this.txtMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -301,7 +283,6 @@
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDis)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudAmout)).EndInit();
@@ -332,8 +313,6 @@
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
-        private NumericUpDown nudDis;
-        private Button btnDis;
         private ComboBox cboMove;
         private Button btnMove;
         private TextBox txtTotal;

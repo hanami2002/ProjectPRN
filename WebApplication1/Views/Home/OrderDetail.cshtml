@@ -1,0 +1,8 @@
+﻿@model IEnumerable<WebApplication1.Models.OrderDetail>
+@foreach(var item in Model)
+{
+    <p>@item.IdFoodNavigation.Name</p>
+    <p>@item.Counts</p>
+    <p>@item.IdFoodNavigation.Price</p>
+
+}
